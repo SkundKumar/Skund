@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Fugaz_One } from "next/font/google";
+const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -25,7 +27,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${fugaz.variable} ${geistMono.variable} antialiased`}
       >
         {children}
       </body>

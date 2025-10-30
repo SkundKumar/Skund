@@ -1,8 +1,11 @@
 "use client";
 
+import { Fugaz_One } from "next/font/google";
+const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
+
 export default function ScrollBar() {
   return (
-    <div className="w-full overflow-hidden">
+    <div className={`w-full overflow-hidden ${fugaz.className}`}>
       <div
         className="
           flex md:grid md:grid-cols-4  

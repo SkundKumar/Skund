@@ -1,20 +1,16 @@
 import Hero from "./components/Hero";
 import ScrollBar from "./components/ScrollBar";
-import WorkSection from "./components/WorkSection";
 
+import WorkSection from "./components/WorkSection";
+import BouncingTags from "./components/BouncingTags";
+import Outro from "./components/Outro";
 export default function Home() {
   return (
     <main>
       <Hero/>
-
-      {/* ✅ Add your scroll bar here */}
       <ScrollBar />
-
-      <WorkSection />
-
-      <section className="outro">
-        <h1>(Outro)</h1>
-      </section>
+      <WorkSection />       
+      <Outro/>     
     </main>
   );
 }
