@@ -114,7 +114,7 @@ const BouncingTags: React.FC = () => {
         <div
           key={index}
           className="tag-item"
-          ref={(el) => (tagsRef.current[index] = el)}
+         ref={(el) => { tagsRef.current[index] = el; }}
         >
           {text}
         </div>
