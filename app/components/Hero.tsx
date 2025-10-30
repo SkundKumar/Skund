@@ -7,13 +7,13 @@ const fugaz = Fugaz_One({ subsets: ['latin'], weight: '400' });
 const Hero = () => {
   return (
     <section className=" flex flex-col w-screen h-[100vh-52rem]">
-    <div className='w-screen h-25 border-b-2  flex'>
-        <div className={`${pixelify.className} w-1/2 md:w-1/4 flex justify-center items-center text-5xl md:text-7xl border-r-2`}>
+    <div className='w-screen h-25 border-b-2 border-black flex'>
+        <div className={`${pixelify.className} w-1/2 md:w-1/4 flex justify-center items-center text-5xl md:text-7xl border-r-2 border-black`}>
             SK
         </div>
         <div className={`hidden sm:block w-2/4 border-r-2 ${fugaz.className}`}>
         </div>
-        <button className={`hover:bg-[#fff0db] w-1/2 md:w-1/4 border-r-2 flex items-center justify-center text-2xl ${fugaz.className}`}>
+        <button className={`hover:bg-[#fff0db] w-1/2 md:w-1/4 border-black border-r-2 flex items-center justify-center text-2xl ${fugaz.className}`}>
             Resume
         </button>
     </div>
@@ -30,10 +30,10 @@ const Hero = () => {
         </div>
     </div>
     <div className={`w-screen h-56 border-b-2 flex ${fugaz.className}`}>
-        <div className='w-1/2 border-r-2 overflow-hidden'>
+        <div className='w-1/2 border-r-2 border-black overflow-hidden'>
             <img className='h-56 w-full object-cover' src="/me.png" alt="" />
         </div>
-        <div className='w-1/2 border-r-2 overflow-hidden flex items-center justify-center lg:text-9xl md:text-7xl sm:text-5xl text-4xl'>
+        <div className='w-1/2 border-r-2 border-black overflow-hidden flex items-center justify-center lg:text-9xl md:text-7xl sm:text-5xl text-4xl'>
             Front End
         </div>
     </div>
