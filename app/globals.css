@@ -1,26 +1,95 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
+body {
+  background-color: #f40c3f;
+  overflow-x: hidden;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+/* --- Your custom CSS below --- */
+
+/* Hide scrollbars on mobile */
+.scrollbar-hide::-webkit-scrollbar {
+  display: none;
+}
+.scrollbar-hide {
+  -ms-overflow-style: none; /* IE & Edge */
+  scrollbar-width: none; /* Firefox */
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+.intro,
+.outro {
+  @apply flex justify-center items-center bg-[#f40c3f] text-black;
+}
+
+.intro h1,
+.outro h1 {
+  font-family: "GR NORCH";
+  font-size: 5vw;
+  font-weight: lighter;
+  text-transform: uppercase;
+}
+
+.work {
+  background-color: #000;
+  overflow: hidden;
+}
+
+canvas {
+  @apply absolute top-0 left-0;
+}
+
+#grid-canvas {
+  z-index: 0;
+}
+
+#letters-canvas {
+  z-index: 1;
+}
+
+.text-container {
+  @apply absolute top-0 left-0 w-full h-full;
+  z-index: 2;
+  pointer-events: none;
+  perspective: 2500px;
+  perspective-origin: center;
+}
+
+.letter {
+  @apply absolute font-bold text-[14rem];
+  font-family: "Bigger", sans-serif;
+  color: #f40c3f;
+  transform-origin: center;
+  transform-style: preserve-3d;
+  will-change: transform;
+}
+
+.cards {
+  @apply relative flex justify-around items-center;
+  width: 500vw;
+  height: 100vh;
+  padding-left: 100vw;
+  z-index: 10;
+}
+
+@media (max-width: 768px) {
+  .cards {
+    @apply relative flex justify-around items-center;
+    width: 800vw;
+  height: 100vh;
+  padding-left: 0vw;
+  z-index: 10;
   }
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+.card {
+  @apply flex flex-col gap-2 bg-black p-2;
+  width: 10%;
+  height: 50%;
+}
+
+  
+.card-copy {
+  @apply flex justify-between items-center px-1 uppercase text-[12px];
+  font-family: "Akkurat Mono";
+  color: #f40c3f;
 }
