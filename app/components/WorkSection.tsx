@@ -190,18 +190,31 @@ export default function WorkSection() {
     <section className="work">
       <div className="text-container" />
       <div className="cards">
-        {[1, 2, 3, 4, 5, 6, 7].map((num) => (
-          <div key={num} className="card">
-            <div className="card-img">
-              <img src={`/assets/img${num}.jpg`} alt={`Image ${num}`} />
+      {[
+          { title: "CPL 2.0", code: "Next.js, Tailwind, GSAP", img: "https://cpl-20.vercel.app/_next/image?url=%2FashenOne-mob.png&w=1920&q=75", link: "https://cpl-20.vercel.app/" },
+          { title: "CodeChef BU", code: "React, GSAP,Lottie", img: "/cf.png", link: "https://codechef-seven.vercel.app/" },
+          { title: "ICISN 2026 Conference", code: "Next.js, Tailwind, GSAP", img: "/image.png", link: "https://icisn-c.vercel.app/" },
+          { title: "Project Showcase", code: "Next.js, React bits ui", img: "/ps.png", link: "https://project-showcase-coral.vercel.app/" },
+          { title: "Coming soon", code: "456732", img: "/assets/img5.jpg", link: "https://example.com/virtual" },
+          
+        
+      ].map((item, idx) => (
+          <a
+            key={idx}
+            href={item.link}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="card"
+            style={{ textDecoration: "none", color: "inherit" }}
+          >
+            <div className="card-img object-cover">
+              <img src={item.img} alt={item.title} />
             </div>
             <div className="card-copy">
-              <p>
-                {["Eclipse Horizon", "Vision Link", "Iron Bond", "Golden Case", "Virtual Space", "Smart Vision", "Desert Tunnel"][num - 1]}
-              </p>
-              <p>{["739284", "585912", "621478", "036251", "456732", "874355", "682943"][num - 1]}</p>
+              <p>{item.title}</p>
+              <p>{item.code}</p>
             </div>
-          </div>
+          </a>
         ))}
       </div>
     </section>
