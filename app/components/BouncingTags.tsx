@@ -7,10 +7,9 @@ import { Fugaz_One } from 'next/font/google';
 const fugaz = Fugaz_One({ subsets: ['latin'], weight: '400' });
 
 const myTags = [
-  'Wireframe', 'Drawing', 'UX Design',
-  'Web Design', 'Photography', 'Framer',
-  'Product Design', 'TypeScript', 'Next.js',
-  'React', 'CSS', 'HTML',
+  'React.js', 'Next.js', 'GSAP',
+  'Web Design', 'UI/UX', 'Javascript',
+  'DaVinchi Resolve', 'TypeScript', 'CSS', 'HTML','Git','GitHub','Tailwind CSS','C++'
 ];
 
 const BouncingTags: React.FC = () => {

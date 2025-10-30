@@ -18,7 +18,7 @@ const Hero = () => {
         </button>
     </div>
     <div className={`border-b-2 border-black w-screen h-52 flex ${fugaz.className}`}>
-        <div className='w-3/4 border-black border-r-2 flex justify-start p-3 md:pl-10 lg:text-9xl md:text-7xl sm:text-5xl text-4xl items-center'>
+        <div className='w-3/4 border-black border-r-2 flex justify-start p-3 md:pl-10 lg:text-9xl md:text-7xl sm:text-5xl text-5xl items-center'>
             Skund Kumar
         </div>
         <div className='w-1/4'>
@@ -37,7 +37,7 @@ const Hero = () => {
             Front End
         </div>
     </div>
-    <div className={`w-screen h-52 flex items-center lg:text-9xl md:text-7xl sm:text-5xl text-6xl pl-5 md:pl-10 ${fugaz.className}`}>
+    <div className={`w-screen h-52 flex items-center lg:text-9xl md:text-7xl sm:text-5xl text-7xl pl-5 md:pl-10 ${fugaz.className}`}>
         <h1 className='mr-10'>Developer</h1>
         <img className='w-30 h-30 mt-7 mr-2 hidden md:block ' src="/egg.svg" alt="" />
         <img className='w-30 h-30 mt-7 mr-2 hidden md:block' src="/greenflower.svg" alt="" />

@@ -160,7 +160,10 @@ export default function WorkSection() {
     ScrollTrigger.create({
       trigger: ".work",
       start: "top top",
-      end: "+=700%",
+      end: () => {
+        const cards = document.querySelector(".cards");
+        return cards ? cards.scrollWidth - window.innerWidth : "+=700%";
+      },
       pin: true,
       scrub: 1,
       onUpdate: (self) => {
