@@ -10,7 +10,7 @@ export default function ScrollBar() {
         className="
           flex md:grid md:grid-cols-4  
           overflow-x-auto md:overflow-visible scrollbar-hide
-          -mx-4 md:mx-0 py-4 border-black border-t-2 border-b-2 mb-2
+          -mx-4 md:mx-0 py-0 border-black border-t-2 border-b-2 mb-2
         "
         // optional: enable smooth inertial scrolling on iOS
         style={{ WebkitOverflowScrolling: "touch" }}
@@ -43,7 +43,7 @@ export default function ScrollBar() {
            <div className="w-full md:w-[400px]  overflow-hidden shadow-md">
            <iframe
         width="100%"
-        height="260"
+        height="230"
         scrolling="no"
         frameBorder="no"
         allow="autoplay"
