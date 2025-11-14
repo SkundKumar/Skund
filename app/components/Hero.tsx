@@ -33,15 +33,16 @@ const Hero = () => {
   useLayoutEffect(() => {
     
     let context = gsap.context(()=>{
-        const allOtherContents = [skRef.current, resumeRef.current, gifRef.current, frontEndRef.current, developerRef.current, iconsRef.current,];
+        const allOtherContents = [skRef.current, resumeRef.current, gifRef.current, frontEndRef.current, developerRef.current ];
         const verline = [vLine1.current, vLine2.current, vLine3.current, vLine4.current];
         const horline = [hLine1.current, hLine2.current, hLine3.current];
+        const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
         gsap.set(allOtherContents, {autoAlpha: 0, y: '50'});
         gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%'});
         gsap.set(verline, {scaleY: 0, transformOrigin: 'center center'});
         gsap.set(horline, {scaleX: 0, transformOrigin: 'left center'});
         gsap.set(meRef.current, { autoAlpha:0, x: '-100%'});
-
+        gsap.set(icons, {autoAlpha: 0, y: 50});
         const tl = gsap.timeline();
         tl.to(nameRef.current,{
             autoAlpha: 1,
@@ -75,6 +76,12 @@ const Hero = () => {
             duration: 0.8,
             stagger: 0.07,
         })
+        tl.to(icons,{
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.8,
+            stagger: 0.2,
+        },"-=0.5");
        
     }, mainRef);
 
@@ -110,7 +117,7 @@ const Hero = () => {
 
       {/* --- Row 2 (Added overflow-hidden) --- */}
       <div className={`w-screen h-52 flex ${fugaz.className} overflow-hidden`}>
-        <div ref={nameRef} className='w-3/4 flex justify-start p-3 md:pl-10 lg:text-9xl md:text-7xl sm:text-5xl text-5xl items-center'>
+        <div ref={nameRef} className='w-3/4 flex justify-start p-3 md:pl-10 lg:text-9xl md:text-7xl  text-7xl items-center'>
           Skund Kumar
         </div>
         
@@ -138,7 +145,7 @@ const Hero = () => {
         {/* Vertical Line 4 */}
         <div ref={vLine4} className="w-[2px] h-full bg-black"></div>
         
-        <div ref={frontEndRef} className='w-1/2 overflow-hidden flex items-center justify-center lg:text-9xl md:text-7xl sm:text-5xl text-4xl'>
+        <div ref={frontEndRef} className='w-1/2 overflow-hidden ml-2 mr-2  flex items-center justify-center lg:text-9xl md:text-7xl  text-6xl'>
           Front End
         </div>
       </div>
@@ -147,12 +154,12 @@ const Hero = () => {
       <div ref={hLine3} className="w-full h-[2px] bg-black"></div>
       
       {/* --- Row 4 --- */}
-      <div className={`w-screen h-52 flex items-center pl-5 md:pl-10 ${fugaz.className}`}>
-        <h1 ref={developerRef} className='mr-10 lg:text-9xl md:text-7xl sm:text-5xl text-7xl'>Developer</h1>
+      <div className={`w-screen h-52 md:flex md:items-center pl-5 md:pl-10 ${fugaz.className}`}>
+        <h1 ref={developerRef} className='mr-10 lg:text-9xl mt-5 md:mt-0 md:text-7xl sm:text-5xl text-7xl'>Developer</h1>
         <div ref={iconsRef} className="flex">
-          <img className='w-30 h-30 mt-7 mr-2 hidden md:block ' src="/egg.svg" alt="" />
-          <img className='w-30 h-30 mt-7 mr-2 hidden md:block' src="/greenflower.svg" alt="" />
-          <img className='w-30 h-30 mt-7 hidden md:block' src="/lemon.svg" alt="" />
+          <img className='md:w-30 md:h-30 h-20 mt-3 w-20 md:mt-7 mr-2  md:block ' src="/egg.svg" alt="" />
+          <img className='md:w-30 md:h-30 h-20 mt-3 w-20 md:mt-7 mr-2  md:block' src="/greenflower.svg" alt="" />
+          <img className='md:w-30 md:h-30 h-20 mt-3 w-20 md:mt-7  md:block' src="/lemon.svg" alt="" />
         </div>
       </div>
     </section>
