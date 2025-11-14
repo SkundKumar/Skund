@@ -36,7 +36,7 @@ const Hero = () => {
         const allOtherContents = [skRef.current, resumeRef.current, gifRef.current, frontEndRef.current, developerRef.current ];
         const verline = [vLine1.current, vLine2.current, vLine3.current, vLine4.current];
         const horline = [hLine1.current, hLine2.current, hLine3.current];
-        const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
+        const icons = gsap.utils.toArray(iconsRef.current!.querySelectorAll('img'));
         gsap.set(allOtherContents, {autoAlpha: 0, y: '50'});
         gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%'});
         gsap.set(verline, {scaleY: 0, transformOrigin: 'center center'});
