@@ -1,43 +1,72 @@
 "use client";
 
 import { Fugaz_One } from "next/font/google";
+import Image from "next/image";
+import gsap from "gsap";
+import React, { useLayoutEffect, useRef } from 'react'
 const fugaz = Fugaz_One({ subsets: ["latin"], weight: "400" });
 
 export default function ScrollBar() {
+  const mainRef = useRef(null);
+
+  const card1Ref = useRef(null);
+  const card2Ref = useRef(null);
+  const card3Ref = useRef(null);
+  const card4Ref = useRef(null);
+
+  useLayoutEffect(()=>{
+      let context = gsap.context(()=>{
+        const cards = [card1Ref.current, card2Ref.current, card3Ref.current, card4Ref.current];
+
+        gsap.set(cards, {autoAlpha: 0, y: 50});
+
+        gsap.to(cards,{
+          autoAlpha: 1,
+          y: 0,
+          duration: 1,
+          stagger: 0.8,
+          ease: 'power2.out',  
+        })
+      },mainRef);
+      return () => context.revert();
+  },[])
+
+
   return (
     <div className={`w-full overflow-hidden ${fugaz.className}`}>
       <div
         className="
           flex md:grid md:grid-cols-4  
           overflow-x-auto md:overflow-visible scrollbar-hide
-          -mx-4 md:mx-0 py-0 border-black border-t-2 border-b-2 mb-2
+          -mx-0 md:mx-0 py-0 
         "
         // optional: enable smooth inertial scrolling on iOS
         style={{ WebkitOverflowScrolling: "touch" }}
       >
         {/* 1️⃣ Card One */}
-        <div className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
+        <div ref={card1Ref} className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
                           flex items-center justify-center 
-                        text-black font-semibold text-xl hover:scale-105 transition-transform">
-          <p>UI Design</p>
+                        text-black font-semibold text-xl overflow-hidden hover:scale-105 transition-transform">
+
+          <img src="./baghban.svg" className="h-full w-full object-cover" alt="..." />
         </div>
 
         {/* 2️⃣ Card Two */}
-        <div className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
+        <div ref={card2Ref} className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
                           flex items-center justify-center
                         text-black font-semibold text-xl hover:scale-105 transition-transform">
-          <p>Branding</p>
+           <img src="./coffee.svg" className="h-full w-full object-cover" alt="..." />
         </div>
 
         {/* 3️⃣ Card Three */}
-        <div className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
+        <div ref={card3Ref} className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
                           flex items-center justify-center
                         text-black font-semibold text-xl hover:scale-105 transition-transform">
-          <p>Motion</p>
+         <img src="./dream.svg" className="h-full w-full object-cover" alt="..." />
         </div>
 
         {/* 4️⃣ Card Four */}
-        <div className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
+        <div ref={card4Ref} className="flex-shrink-0 w-[80vw] sm:w-[60vw] md:w-auto h-[250px] md:h-[250px] 
                           flex items-center justify-center
                         text-black font-semibold text-xl hover:scale-105 transition-transform">
            <div className="w-full md:w-[400px]  overflow-hidden shadow-md">

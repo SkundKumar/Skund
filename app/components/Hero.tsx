@@ -37,7 +37,7 @@ const Hero = () => {
         const verline = [vLine1.current, vLine2.current, vLine3.current, vLine4.current];
         const horline = [hLine1.current, hLine2.current, hLine3.current];
        if (!iconsRef.current) {
-  return; // Stop if the ref isn't connected
+  return; 
 }
 // Now, TypeScript knows it's safe to access .querySelectorAll
 const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
