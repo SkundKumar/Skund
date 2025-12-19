@@ -41,6 +41,7 @@ const Hero = () => {
 }
 // Now, TypeScript knows it's safe to access .querySelectorAll
 const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
+        gsap.set(mainRef.current, {autoAlpha: 1,});
         gsap.set(allOtherContents, {autoAlpha: 0, y: '50',willChange: 'transform, opacity'});
         gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%',willChange: 'transform, opacity'});
         gsap.set(verline, {scaleY: 0, transformOrigin: 'center center',willChange: 'transform, opacity'});

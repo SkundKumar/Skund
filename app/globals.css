@@ -2,8 +2,8 @@
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
-hero-shell{
-  opacity: 0;
+.hero-shell{
+opacity: 0;
 }
 
 body {
