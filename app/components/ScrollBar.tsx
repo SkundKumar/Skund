@@ -18,7 +18,7 @@ export default function ScrollBar() {
       let context = gsap.context(()=>{
         const cards = [card1Ref.current, card2Ref.current, card3Ref.current, card4Ref.current];
 
-        gsap.set(cards, {autoAlpha: 0, y: 50});
+        gsap.set(cards, {autoAlpha: 0, y:'-100%',willChange: 'transform, opacity',force3D: true});
         gsap.set(mainRef.current, {autoAlpha: 1,});
 
         gsap.to(cards,{
@@ -26,8 +26,9 @@ export default function ScrollBar() {
           y: 0,
           duration: 0.8,
           stagger: 0.2,
-          ease: 'power1.inOut',  
-          scrum: 'true'
+          ease: 'power3.inOut',  
+          scrum: 'true',
+          delay: 3.0,
         })
       },mainRef);
       return () => context.revert();

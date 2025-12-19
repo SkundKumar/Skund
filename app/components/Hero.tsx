@@ -34,7 +34,7 @@ const Hero = () => {
   useLayoutEffect(() => {
     
     let context = gsap.context(()=>{
-        const allOtherContents = [skRef.current, resumeRef.current, gifRef.current, frontEndRef.current, developerRef.current ];
+        const allOtherContents = [resumeRef.current, gifRef.current, frontEndRef.current, developerRef.current ];
         const verline = [vLine1.current, vLine2.current, vLine3.current, vLine4.current];
         const horline = [hLine1.current, hLine2.current, hLine3.current];
        if (!iconsRef.current) {
@@ -43,38 +43,42 @@ const Hero = () => {
 // Now, TypeScript knows it's safe to access .querySelectorAll
 const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
         gsap.set(mainRef.current, {autoAlpha: 1,});
+        gsap.set(skRef.current, {autoAlpha: 0, y: '-100%',willChange: 'transform, opacity', force3D: true});
         gsap.set(allOtherContents, {autoAlpha: 0, y: 50,willChange: 'transform, opacity', force3D: true});
-        gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%',willChange: 'transform, opacity',force3D: true});
+        gsap.set(nameRef.current,{autoAlpha: 0, y: '-100%',willChange: 'transform, opacity',force3D: true});
         gsap.set(verline, {scaleY: 0, transformOrigin: 'center center',willChange: 'transform, opacity',force3D: true});
         gsap.set(horline, {scaleX: 0, transformOrigin: 'left center',willChange: 'transform, opacity',force3D: true});
-        gsap.set(meRef.current, { autoAlpha:0, x: '-100%',willChange: 'transform, opacity',force3D: true});
+        gsap.set(meRef.current, { autoAlpha:0, y: '100%',willChange: 'transform, opacity',force3D: true});
         gsap.set(icons, {autoAlpha: 0, y: 50,willChange: 'transform, opacity',force3D: true});
         const tl = gsap.timeline();
-        tl.to(nameRef.current,{
-            autoAlpha: 1,
-            x: 0,
-            duration: 1.2,
-            ease: 'power2.out'
+        tl.to(skRef.current,{
+          autoAlpha: 1,
+          duration: 1.0,
+          y: 0,
+          ease: 'power3.inout'
         })
-         tl.to(meRef.current,{
-            autoAlpha: 1,
-            x: 0,
-            duration: 1.0,
-            ease: 'power1.out',
-        },"-=0.5")
+         
+      
+        
         tl.to(verline,{
             scaleY: 1,
             duration: 0.8,
-            ease: 'power2.out',
+            ease: 'power3.in',
             stagger: 0.1
 
-        },"-=0.7")
+        },)
         tl.to(horline,{
             scaleX: 1,
             duration: 0.8,
-            ease: 'power2.out',
+            ease: 'power3.in',
             stagger: 0.1
-        }, "-=1.0");
+        },"-=1.0" );
+          tl.to(nameRef.current,{
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.8,
+        ease: 'power3.inout'
+       });
 
         tl.to(allOtherContents,{
             autoAlpha: 1,
@@ -88,6 +92,13 @@ const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
             duration: 0.8,
             stagger: 0.2,
         },"-=0.5");
+     
+       tl.to(meRef.current,{
+        autoAlpha: 1,
+        y: 0,
+        duration: 0.6,
+        ease: 'power3.inout'
+       },"-=0.8");
        
     }, mainRef);
 
