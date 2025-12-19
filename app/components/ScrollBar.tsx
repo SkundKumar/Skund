@@ -19,6 +19,7 @@ export default function ScrollBar() {
         const cards = [card1Ref.current, card2Ref.current, card3Ref.current, card4Ref.current];
 
         gsap.set(cards, {autoAlpha: 0, y: 50});
+        gsap.set(mainRef.current, {autoAlpha: 1,});
 
         gsap.to(cards,{
           autoAlpha: 1,
@@ -34,9 +35,11 @@ export default function ScrollBar() {
 
 
   return (
-    <div className={`w-full overflow-hidden ${fugaz.className}`}>
+    <div className={`  w-full overflow-hidden ${fugaz.className}`}>
       <div
+      ref={mainRef}
         className="
+        sc
           flex md:grid md:grid-cols-4  
           overflow-x-auto md:overflow-visible scrollbar-hide
           -mx-0 md:mx-0 py-0 
