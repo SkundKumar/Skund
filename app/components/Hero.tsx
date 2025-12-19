@@ -124,8 +124,19 @@ const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
         {/* Vertical Line 2 (only on small screens and up) */}
         <div ref={vLine2} className="w-[2px] h-full bg-black hidden sm:block"></div> 
         
-        <button ref={resumeRef} className={`hover:bg-[#fff0db] w-1/2 md:w-1/4 flex items-center justify-center text-2xl ${fugaz.className}`}>
-          Resume
+        <button ref={resumeRef} className={`group relative cursor-crosshair w-1/2 md:w-1/4 flex items-center justify-center text-2xl ${fugaz.className}`}>
+          <span className='absolute inset-0  w-full h-full bg-black rounded-tr-full transform rounded-br-full  scale-x-0 origin-left 
+          group-hover:scale-x-100 transition-transform duration-800 ease-in-out z-0'>
+
+          </span>
+          <span className='absolute inset-0  w-full h-full bg-black rounded-tl-full transform scale-x-0 
+          origin-right group-hover:scale-x-100 transition-transform duration-800 ease-in-out z-0'>
+
+          </span>
+          <span className='relative z-10 group-hover:text-white transition-colors duration-500'>
+             Resume
+          </span>
+         
         </button>
       </div>
       
