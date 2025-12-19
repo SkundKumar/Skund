@@ -23,9 +23,10 @@ export default function ScrollBar() {
         gsap.to(cards,{
           autoAlpha: 1,
           y: 0,
-          duration: 1,
-          stagger: 0.8,
-          ease: 'power2.out',  
+          duration: 0.8,
+          stagger: 0.2,
+          ease: 'power1.inOut',  
+          scrum: 'true'
         })
       },mainRef);
       return () => context.revert();
