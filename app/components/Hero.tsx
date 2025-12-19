@@ -3,6 +3,7 @@ import React, { useLayoutEffect, useRef } from 'react'
 import { Pixelify_Sans } from 'next/font/google'
 import { Fugaz_One } from 'next/font/google'
 import { gsap } from 'gsap'
+import Image from 'next/image'
 
 const pixelify = Pixelify_Sans({ subsets: ['latin'], weight: '400' });
 const fugaz = Fugaz_One({ subsets: ['latin'], weight: '400' });
@@ -42,12 +43,12 @@ const Hero = () => {
 // Now, TypeScript knows it's safe to access .querySelectorAll
 const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
         gsap.set(mainRef.current, {autoAlpha: 1,});
-        gsap.set(allOtherContents, {autoAlpha: 0, y: '50',willChange: 'transform, opacity'});
-        gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%',willChange: 'transform, opacity'});
-        gsap.set(verline, {scaleY: 0, transformOrigin: 'center center',willChange: 'transform, opacity'});
-        gsap.set(horline, {scaleX: 0, transformOrigin: 'left center',willChange: 'transform, opacity'});
-        gsap.set(meRef.current, { autoAlpha:0, x: '-100%',willChange: 'transform, opacity'});
-        gsap.set(icons, {autoAlpha: 0, y: 50,willChange: 'transform, opacity'});
+        gsap.set(allOtherContents, {autoAlpha: 0, y: 50,willChange: 'transform, opacity', force3D: true});
+        gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%',willChange: 'transform, opacity',force3D: true});
+        gsap.set(verline, {scaleY: 0, transformOrigin: 'center center',willChange: 'transform, opacity',force3D: true});
+        gsap.set(horline, {scaleX: 0, transformOrigin: 'left center',willChange: 'transform, opacity',force3D: true});
+        gsap.set(meRef.current, { autoAlpha:0, x: '-100%',willChange: 'transform, opacity',force3D: true});
+        gsap.set(icons, {autoAlpha: 0, y: 50,willChange: 'transform, opacity',force3D: true});
         const tl = gsap.timeline();
         tl.to(nameRef.current,{
             autoAlpha: 1,
@@ -130,9 +131,12 @@ const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
         <div ref={vLine3} className="w-[2px] h-full bg-black"></div>
         
         <div ref={gifRef} className='w-1/4'>
-          <img 
-            src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExejI2eDhpYjBxbmNtYmJqazUyNW01eXFqeDJ2dGx4aDRyOG1ud3R3NCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/lJNoBCvQYp7nq/giphy.gif"
+          <Image 
+            src="/baghban.svg"
             alt="Animated GIF"
+            width={150}
+            height={150}
+            loading='lazy'
             className="w-full h-full object-cover"
           />
         </div>
@@ -144,7 +148,7 @@ const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
       {/* --- Row 3 (Added overflow-hidden) --- */}
       <div className={`w-screen h-56 flex ${fugaz.className} overflow-hidden`}>
         <div ref={meRef} className='w-1/2 overflow-hidden'>
-          <img className='h-56 w-full object-cover' src="/me.png" alt="" />
+          <Image width={150} height={15} className='h-56 w-full object-cover' src="/me.png" alt="" />
         </div>
         
         {/* Vertical Line 4 */}
