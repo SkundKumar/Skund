@@ -41,12 +41,12 @@ const Hero = () => {
 }
 // Now, TypeScript knows it's safe to access .querySelectorAll
 const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
-        gsap.set(allOtherContents, {autoAlpha: 0, y: '50'});
-        gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%'});
-        gsap.set(verline, {scaleY: 0, transformOrigin: 'center center'});
-        gsap.set(horline, {scaleX: 0, transformOrigin: 'left center'});
-        gsap.set(meRef.current, { autoAlpha:0, x: '-100%'});
-        gsap.set(icons, {autoAlpha: 0, y: 50});
+        gsap.set(allOtherContents, {autoAlpha: 0, y: '50',willChange: 'transform, opacity'});
+        gsap.set(nameRef.current,{autoAlpha: 0, x: '-100%',willChange: 'transform, opacity'});
+        gsap.set(verline, {scaleY: 0, transformOrigin: 'center center',willChange: 'transform, opacity'});
+        gsap.set(horline, {scaleX: 0, transformOrigin: 'left center',willChange: 'transform, opacity'});
+        gsap.set(meRef.current, { autoAlpha:0, x: '-100%',willChange: 'transform, opacity'});
+        gsap.set(icons, {autoAlpha: 0, y: 50,willChange: 'transform, opacity'});
         const tl = gsap.timeline();
         tl.to(nameRef.current,{
             autoAlpha: 1,
@@ -94,7 +94,7 @@ const icons = gsap.utils.toArray(iconsRef.current.querySelectorAll('img'));
   }, []);
 
   return (
-    <section ref={mainRef} className="flex flex-col w-screen h-[100vh-52rem] overflow-hidden">
+    <section ref={mainRef} className="hero-shell flex flex-col w-screen h-[100vh-52rem] overflow-hidden">
       
       {/* --- Row 1 --- */}
       <div className="flex w-screen h-25">
